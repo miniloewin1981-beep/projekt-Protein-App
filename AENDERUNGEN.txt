@@ -1,0 +1,20 @@
+ProteinTracker 1.6 – Änderungen gegenüber 1.5
+
+Datensicherheit
+- Datenformat mit Versionsnummer (schemaVersion 2) und automatischer Umstellung alter Daten
+- Vor der Umstellung wird der alte Stand unverändert gesichert und ist unter Verlauf > Datensicherung herunterladbar
+- Unlesbare Daten werden nicht mehr überschrieben, sondern unter eigenem Schlüssel aufgehoben
+- Import stellt auch Sicherungen älterer Versionen automatisch um
+- Dauerhafter Browser-Speicher wird angefragt; Status und Datum der letzten Sicherung werden angezeigt
+
+Einträge
+- Einträge lassen sich bearbeiten (Datum, Menge, Einheit, Stückgewicht/Dichte) mit Live-Vorschau
+- Nährwerte pro 100 g werden im Eintrag gespeichert, damit Korrekturen neu berechnet werden können
+- Herkunft jeder Umrechnung wird gespeichert und im Tagebuch angezeigt (Richtwert, eigenes Gewicht, Altdaten)
+- Geschätzte Werte sind als „Schätzung“ gekennzeichnet
+
+Sonstiges
+- Neue Nutzer starten mit leerem Profil statt fest eingetragenen Werten
+- Versionsnummer zentral (Fußzeile stimmt wieder)
+- Texterkennung auf feste Version tesseract.js 5.1.1 gepinnt
+- Service Worker räumt alte Caches auf (Cache v8)

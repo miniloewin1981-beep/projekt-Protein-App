@@ -1,16 +1,154 @@
 <!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#123c72"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="ProteinTracker"><link rel="manifest" href="manifest.webmanifest?v=4"><link rel="apple-touch-icon" href="apple-touch-icon.png?v=4"><title>Mein ProteinTracker</title><style>
-:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#19324d;background:#eef4fa}*{box-sizing:border-box}body{margin:0}header{background:linear-gradient(125deg,#123c72,#2c7bc0);color:white;padding:30px 18px 24px}main{max-width:740px;margin:auto;padding:14px 14px 95px}h1{margin:4px 0;font-size:27px}h2{font-size:18px;margin:0 0 12px}.sub{opacity:.85;font-size:13px}.card{background:white;border-radius:17px;padding:18px;margin-bottom:14px;box-shadow:0 3px 16px #193b6110}.row{display:flex;gap:10px;align-items:center}.between{justify-content:space-between}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:#eff6ff;padding:14px;border-radius:12px}.stat strong{display:block;font-size:23px;color:#124b8a}.small{font-size:12px;color:#60758b}.progress{height:12px;background:#dce7f2;border-radius:30px;overflow:hidden;margin:11px 0}.fill{height:100%;width:0;background:#2381d1;border-radius:30px;transition:width .3s}input,select,button{font:inherit}input,select{width:100%;padding:12px;border:1px solid #cbd9e8;border-radius:10px;background:white;min-width:0}label{font-size:12px;font-weight:650;display:block;margin:9px 0 5px}button{border:0;background:#1769b1;color:white;padding:12px 15px;border-radius:10px;font-weight:650;cursor:pointer}button.secondary{background:#e8f1fb;color:#195489}button.danger{background:#fff0f0;color:#9b3434}button:disabled{opacity:.45}.tabs{display:flex;gap:5px;overflow:auto;padding-bottom:7px}.tabs button{white-space:nowrap;background:#e6eff9;color:#345777}.tabs button.active{background:#1769b1;color:white}.hidden{display:none!important}.food{padding:12px 0;border-bottom:1px solid #edf0f5}.food:last-child{border:0}.food-title{font-weight:650}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:10px 6px;border-bottom:1px solid #e5edf5}th{color:#61768c}td.num,th.num{text-align:right;white-space:nowrap}.muted{color:#637a8e;font-size:13px}.notice{background:#fff8e7;border-left:3px solid #e9aa32;padding:11px;border-radius:7px;font-size:13px;line-height:1.5}.ok{background:#e9f8ef;border-left:3px solid #2f9b64;padding:10px;border-radius:7px;font-size:13px}.footer{font-size:12px;color:#70849a;text-align:center;padding:15px}#toast{position:fixed;bottom:20px;left:20px;right:20px;max-width:450px;margin:auto;background:#173e65;color:white;border-radius:12px;padding:14px;display:none;z-index:5}#toast.show{display:block}details summary{cursor:pointer;color:#1b619e;font-weight:600} @media(max-width:380px){.grid{grid-template-columns:1fr}header{padding-top:20px}}
+:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#19324d;background:#eef4fa}*{box-sizing:border-box}body{margin:0}header{background:linear-gradient(125deg,#123c72,#2c7bc0);color:white;padding:30px 18px 24px}main{max-width:740px;margin:auto;padding:14px 14px 95px}h1{margin:4px 0;font-size:27px}h2{font-size:18px;margin:0 0 12px}.sub{opacity:.85;font-size:13px}.card{background:white;border-radius:17px;padding:18px;margin-bottom:14px;box-shadow:0 3px 16px #193b6110}.row{display:flex;gap:10px;align-items:center}.between{justify-content:space-between}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:#eff6ff;padding:14px;border-radius:12px}.stat strong{display:block;font-size:23px;color:#124b8a}.small{font-size:12px;color:#60758b}.progress{height:12px;background:#dce7f2;border-radius:30px;overflow:hidden;margin:11px 0}.fill{height:100%;width:0;background:#2381d1;border-radius:30px;transition:width .3s}input,select,button{font:inherit}input,select{width:100%;padding:12px;border:1px solid #cbd9e8;border-radius:10px;background:white;min-width:0}label{font-size:12px;font-weight:650;display:block;margin:9px 0 5px}button{border:0;background:#1769b1;color:white;padding:12px 15px;border-radius:10px;font-weight:650;cursor:pointer}button.secondary{background:#e8f1fb;color:#195489}button.danger{background:#fff0f0;color:#9b3434}button:disabled{opacity:.45}.tabs{display:flex;gap:5px;overflow:auto;padding-bottom:7px}.tabs button{white-space:nowrap;background:#e6eff9;color:#345777}.tabs button.active{background:#1769b1;color:white}.hidden{display:none!important}.food{padding:12px 0;border-bottom:1px solid #edf0f5}.food:last-child{border:0}.food-title{font-weight:650}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:10px 6px;border-bottom:1px solid #e5edf5}th{color:#61768c}td.num,th.num{text-align:right;white-space:nowrap}.muted{color:#637a8e;font-size:13px}.notice{background:#fff8e7;border-left:3px solid #e9aa32;padding:11px;border-radius:7px;font-size:13px;line-height:1.5}.ok{background:#e9f8ef;border-left:3px solid #2f9b64;padding:10px;border-radius:7px;font-size:13px}.footer{font-size:12px;color:#70849a;text-align:center;padding:15px}#toast{position:fixed;bottom:20px;left:20px;right:20px;max-width:450px;margin:auto;background:#173e65;color:white;border-radius:12px;padding:14px;display:none;z-index:5}#toast.show{display:block}details summary{cursor:pointer;color:#1b619e;font-weight:600}.entry-sub{font-size:12px;color:#60758b;margin-top:3px;line-height:1.4}.entry-sub .est{color:#a26a00}.actions{display:flex;gap:5px;justify-content:flex-end}.actions button{padding:8px 11px}.overlay{position:fixed;inset:0;background:#0b1e3366;display:flex;align-items:flex-end;justify-content:center;z-index:10;padding:14px}.sheet{width:100%;max-width:520px;max-height:90vh;overflow:auto;margin:0;padding-bottom:calc(18px + env(safe-area-inset-bottom,0px))}.wrap{flex-wrap:wrap}:focus-visible{outline:3px solid #f0a020;outline-offset:2px} @media(max-width:380px){.grid{grid-template-columns:1fr}header{padding-top:20px}}
 </style></head><body><header><div style="max-width:740px;margin:auto"><div class="sub">MEIN ERNÄHRUNGSTAGEBUCH</div><h1>ProteinTracker</h1><div class="sub">Protein · Ernährung · Energie</div></div></header><main>
-<div class="tabs" id="tabs"><button data-tab="today" class="active">Heute</button><button data-tab="search">Lebensmittel</button><button data-tab="history">Verlauf</button><button data-tab="profile">Profil</button><button data-tab="health">Apple Health</button></div>
+<div id="loadWarning" class="notice hidden" style="margin-bottom:14px"></div><div class="tabs" id="tabs"><button data-tab="today" class="active">Heute</button><button data-tab="search">Lebensmittel</button><button data-tab="history">Verlauf</button><button data-tab="profile">Profil</button><button data-tab="health">Apple Health</button></div>
 <section id="today" class="page"><div class="card"><div class="row between"><h2>Deine Tagesübersicht</h2><input id="day" type="date" style="width:155px;padding:8px"></div><div class="grid"><div class="stat"><span class="small">Protein gegessen</span><strong id="proteinTotal">0 g</strong></div><div class="stat"><span class="small">Dein Proteinziel</span><strong id="proteinGoal">–</strong></div><div class="stat"><span class="small">Kalorien gegessen</span><strong id="calTotal">0 kcal</strong></div><div class="stat"><span class="small">Kalorien verbraucht</span><strong id="burnTotal">–</strong></div></div><div class="progress"><div class="fill" id="progress"></div></div><div class="small" id="remaining"></div><div class="small" id="balance" style="margin-top:8px"></div></div><div class="card"><div class="row between"><h2>Meine Einträge</h2><button class="secondary" data-go="search">+ Hinzufügen</button></div><div class="table-wrap"><table><thead><tr><th>Lebensmittel</th><th class="num">Menge</th><th class="num">Protein</th><th class="num">kcal</th><th></th></tr></thead><tbody id="entries"></tbody></table></div><p class="muted" id="emptyEntries">Noch keine Lebensmittel eingetragen.</p></div><div class="card"><h2>Weitere Nährwerte</h2><div class="grid"><div class="stat"><span class="small">Kohlenhydrate</span><strong id="carbTotal">0 g</strong></div><div class="stat"><span class="small">Fett</span><strong id="fatTotal">0 g</strong></div></div></div></section>
 <section id="search" class="page hidden"><div class="card" id="photoCard"><h2>📷 Lebensmittel per Foto erfassen</h2><p class="muted">Foto einer Nährwerttabelle oder eines Barcodes auswählen. Die Erkennung erfolgt nach Möglichkeit direkt auf deinem Gerät. Ein Tellerfoto kann ohne zusätzlichen KI-Dienst nicht zuverlässig automatisch berechnet werden.</p><label>Art des Fotos</label><select id="photoMode"><option value="label">Nährwerttabelle (Text erkennen)</option><option value="barcode">Barcode / EAN</option><option value="dish">Gericht / Teller (manuell bestätigen)</option></select><label>Foto aufnehmen oder hochladen</label><input id="photoFile" type="file" accept="image/*" style="margin-bottom:10px"><img id="photoPreview" alt="Vorschau des ausgewählten Fotos" style="display:none;max-width:100%;max-height:250px;object-fit:contain;border-radius:12px;margin:8px 0"><div class="row" style="align-items:center;gap:10px;flex-wrap:wrap"><button id="photoAnalyze" style="flex:1">Foto auswerten</button><button id="photoDelete" type="button" style="background:#b42332;flex:1" disabled>🗑️ Bild entfernen</button></div><p class="muted" id="photoStatus" role="status"></p><div id="photoOutput"></div><p class="small">Hinweis: Die optische Texterkennung lädt beim ersten Mal eine kostenlose Bibliothek aus dem Internet. Bilder werden für die Texterkennung lokal verarbeitet. Produktabfragen über Barcode nutzen Open Food Facts. Ergebnisse bitte vor dem Speichern kontrollieren.</p></div><div class="card"><h2>Lebensmittel suchen</h2><p class="muted">Suche nach Lebensmitteln oder Produkten. Nährwerte stammen aus Open Food Facts und können unvollständig sein.</p><div class="row"><input id="query" placeholder="z. B. Skyr Natur, Banane …" autocomplete="off"><button id="searchBtn">Suchen</button></div><div id="results" aria-live="polite"></div></div><div class="card"><h2>Lebensmittel manuell hinzufügen</h2><div class="notice">Für selbst gekochte Gerichte oder Produkte, die in der Datenbank fehlen. Alle Nährwerte gelten pro 100 g. Für Stück schlägt der Portions-Detektiv bei bekannten Lebensmitteln ein Richtgewicht vor. Bitte prüfe und korrigiere es bei Bedarf. Für Flüssigkeiten bitte die tatsächliche Dichte angeben.</div><label>Name</label><input id="manualName" placeholder="z. B. Hähnchen-Reis-Pfanne"><div class="grid"><div><label>Protein / 100 g</label><input id="manualProtein" type="number" min="0" step="0.1"></div><div><label>Kalorien / 100 g</label><input id="manualKcal" type="number" min="0" step="0.1"></div><div><label>Kohlenhydrate / 100 g</label><input id="manualCarb" type="number" min="0" step="0.1"></div><div><label>Fett / 100 g</label><input id="manualFat" type="number" min="0" step="0.1"></div></div><label>Verzehrte Menge</label><div class="row"><input id="manualAmount" type="number" min="0.01" step="any" value="100" aria-label="Menge"><select id="manualUnit" aria-label="Einheit"><option value="g">g</option><option value="piece">Stk.</option><option value="ml">ml</option><option value="l">l</option></select></div><div id="manualConversion"></div><button id="manualAdd" style="margin-top:12px;width:100%">In mein Tagebuch übernehmen</button></div></section>
-<section id="history" class="page hidden"><div class="card"><h2>Letzte 14 Tage</h2><div class="table-wrap"><table><thead><tr><th>Datum</th><th class="num">Protein</th><th class="num">kcal gegessen</th><th class="num">kcal verbraucht</th></tr></thead><tbody id="historyRows"></tbody></table></div></div><div class="card"><h2>Datensicherung</h2><p class="muted">Die Daten werden in diesem Browser gespeichert. Löscht du Website-Daten, können Einträge verloren gehen. Sichere sie regelmäßig.</p><button id="export">Daten als JSON sichern</button><label>Gesicherte Daten wiederherstellen</label><input type="file" id="import" accept="application/json,.json"></div></section>
+<section id="history" class="page hidden"><div class="card"><h2>Letzte 14 Tage</h2><div class="table-wrap"><table><thead><tr><th>Datum</th><th class="num">Protein</th><th class="num">kcal gegessen</th><th class="num">kcal verbraucht</th></tr></thead><tbody id="historyRows"></tbody></table></div></div><div class="card"><h2>Datensicherung</h2><p class="muted">Die Daten werden in diesem Browser gespeichert. Löscht du Website-Daten, können Einträge verloren gehen. Sichere sie regelmäßig.</p><div id="persistStatus" class="notice" style="margin-bottom:12px">Speicherschutz wird geprüft …</div><p class="small" id="lastExport"></p><div class="row wrap"><button id="export">Daten als JSON sichern</button><button id="exportOld" class="secondary hidden">Stand vor Update 1.6 herunterladen</button></div><label>Gesicherte Daten wiederherstellen</label><input type="file" id="import" accept="application/json,.json"><p class="small">Sicherungen älterer Versionen werden beim Wiederherstellen automatisch auf das neue Format umgestellt.</p></div></section>
 <section id="profile" class="page hidden"><div class="card"><h2>Mein Profil</h2><div class="grid"><div><label>Alter (Jahre)</label><input id="age" type="number" min="1" max="120"></div><div><label>Körpergröße (cm)</label><input id="height" type="number" min="80" max="250"></div><div><label>Gewicht (kg)</label><input id="weight" type="number" min="20" max="400" step="0.1"></div><div><label>Aktivität</label><select id="activity"><option value="light">Wenig Bewegung</option><option value="cardio">Ausdauertraining</option><option value="mixed">Kraft- und Ausdauertraining</option></select></div></div><label>Mein Ziel</label><select id="goal"><option value="muscle">Muskelaufbau</option><option value="maintain">Muskelerhalt</option><option value="loss">Fettabbau mit Muskelerhalt</option></select><label>Eigenes Proteinziel (g/Tag, optional)</label><input id="customGoal" type="number" min="1" max="500" placeholder="Automatisch berechnen"><p class="muted" id="profileInfo"></p><button id="saveProfile">Profil speichern</button></div><div class="card"><h2>Erinnerung</h2><div class="notice">Eine Web-App kann ohne Push-Infrastruktur keine zuverlässigen täglichen Hintergrund-Benachrichtigungen garantieren. Nutze die kostenlose iPhone-App „Erinnerungen“ für eine tägliche Erinnerung.</div><p class="muted">Vorschlag: „ProteinTracker ausfüllen“ täglich um 20:00 Uhr.</p></div></section>
 <section id="health" class="page hidden"><div class="card"><h2>Apple Health & Kalorienverbrauch</h2><div class="notice"><strong>Status: Nicht verbunden.</strong> Safari und Web-Apps dürfen Apple Health nicht direkt auslesen. Eine automatische Synchronisierung benötigt eine zusätzliche iOS-Integration, die wir noch nicht eingerichtet haben. Die App zeigt daher keine erfundenen Health-Werte an.</div><p class="muted">Für eine Kalorienbilanz können bis dahin Ruhe- und Aktivitätsenergie manuell ergänzt werden. Diese Felder sind optional und kein automatischer Health-Abgleich.</p><label>Datum</label><input id="burnDay" type="date"><div class="grid"><div><label>Ruheenergie (kcal)</label><input id="restBurn" type="number" min="0" step="1" placeholder="z. B. 1350"></div><div><label>Aktivitätsenergie (kcal)</label><input id="activeBurn" type="number" min="0" step="1" placeholder="z. B. 450"></div></div><button id="saveBurn" style="margin-top:12px">Kalorienverbrauch speichern</button><p class="muted">Nicht zusätzlich Trainingskalorien addieren, wenn diese bereits in der Aktivitätsenergie enthalten sind. Werte sind Schätzungen.</p></div></section>
-<div class="footer">ProteinTracker 1.4 · keine Anmeldung · Daten lokal gespeichert</div></main><div id="toast" role="status"></div>
+<div class="footer" id="footer"></div></main><div id="editOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="editTitle"><div class="card sheet"><h2 id="editTitle">Eintrag bearbeiten</h2><div class="food-title" id="editName"></div><div class="small" id="editSource"></div><label>Datum</label><input id="editDay" type="date"><label>Menge</label><div class="row"><input id="editQty" type="number" min="0.01" step="any" aria-label="Menge"><select id="editUnit" aria-label="Einheit" style="max-width:110px"><option value="g">g</option><option value="piece">Stk.</option><option value="ml">ml</option><option value="l">l</option></select></div><div id="editConversion"></div><div class="ok" id="editPreview" style="margin-top:12px"></div><div class="row" style="margin-top:14px"><button class="secondary" id="editCancel" style="flex:1">Abbrechen</button><button id="editSave" style="flex:1">Änderung speichern</button></div></div></div><div id="toast" role="status"></div>
 <script>
-'use strict';const KEY='proteintracker_v1';const empty=()=>({profile:{age:44,height:170,weight:59,activity:'mixed',goal:'muscle',customGoal:''},entries:[],burn:{},portionWeights:{}});let db;try{db=JSON.parse(localStorage.getItem(KEY))||empty();if(!db.profile||!Array.isArray(db.entries)||!db.burn)throw Error('invalid')}catch(e){db=empty()}if(!db.portionWeights||typeof db.portionWeights!=='object'||Array.isArray(db.portionWeights))db.portionWeights={};const $=id=>document.getElementById(id);const round=(v,n=1)=>Number((Number(v)||0).toFixed(n));const fmt=(v,n=1)=>round(v,n).toLocaleString('de-DE');const today=()=>{let d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};$('day').value=today();$('burnDay').value=today();function save(){try{localStorage.setItem(KEY,JSON.stringify(db))}catch(e){toast('Speichern fehlgeschlagen: Speicherplatz prüfen.')}}function toast(s){$('toast').textContent=s;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),3200)}function tab(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('hidden',x.id!==id));document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));if(id==='history')history();if(id==='today')render();if(id==='health'){ $('burnDay').value=$('day').value;loadBurn()}}document.querySelectorAll('[data-tab]').forEach(x=>x.onclick=()=>tab(x.dataset.tab));document.querySelectorAll('[data-go]').forEach(x=>x.onclick=()=>tab(x.dataset.go));function target(){let p=db.profile;let base=p.goal==='maintain'?1.4:p.goal==='loss'?1.7:1.7;let val=Number(p.customGoal);return val>0?val:Math.round(Number(p.weight)*base)}function totals(day){return db.entries.filter(e=>e.day===day).reduce((a,e)=>{for(let k of ['protein','kcal','carb','fat'])a[k]+=Number(e[k])||0;return a},{protein:0,kcal:0,carb:0,fat:0})}function burnTotal(day){let b=db.burn[day];return b&&Number.isFinite(b.rest)&&Number.isFinite(b.active)?b.rest+b.active:null}function render(){let day=$('day').value,t=totals(day),g=target(),burn=burnTotal(day);$('proteinTotal').textContent=fmt(t.protein)+' g';$('proteinGoal').textContent=g+' g';$('calTotal').textContent=fmt(t.kcal,0)+' kcal';$('burnTotal').textContent=burn===null?'Nicht erfasst':fmt(burn,0)+' kcal';$('carbTotal').textContent=fmt(t.carb)+' g';$('fatTotal').textContent=fmt(t.fat)+' g';$('progress').style.width=Math.min(100,g?100*t.protein/g:0)+'%';$('remaining').textContent=g?Math.max(0,round(g-t.protein))+' g bis zum Proteinziel':'Bitte Profil einrichten';$('balance').textContent=burn===null?'Kalorienbilanz: Verbrauch noch nicht erfasst':'Kalorienbilanz: '+fmt(t.kcal-burn,0)+' kcal (Aufnahme − Verbrauch)';let items=db.entries.map((e,i)=>({...e,i})).filter(e=>e.day===day);$('entries').replaceChildren();$('emptyEntries').classList.toggle('hidden',items.length>0);for(let e of items){let tr=document.createElement('tr');for(let val of [e.name,fmt(e.quantity??e.amount)+' '+unitLabel(e.unit||'g'),fmt(e.protein)+' g',fmt(e.kcal,0)]){let td=document.createElement('td');td.textContent=val;tr.append(td)}let td=document.createElement('td'),btn=document.createElement('button');btn.textContent='×';btn.className='danger';btn.setAttribute('aria-label','Eintrag löschen');btn.onclick=()=>{if(confirm('Eintrag löschen?')){db.entries.splice(e.i,1);save();render()}};td.append(btn);tr.append(td);$('entries').append(tr)}}$('day').onchange=render;function history(){let tb=$('historyRows');tb.replaceChildren();for(let i=0;i<14;i++){let d=new Date($('day').value+'T12:00:00');d.setDate(d.getDate()-i);let day=[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-'),t=totals(day),b=burnTotal(day),tr=document.createElement('tr');for(let val of [day,fmt(t.protein)+' g',fmt(t.kcal,0),b===null?'–':fmt(b,0)]){let td=document.createElement('td');td.textContent=val;tr.append(td)}tb.append(tr)}}function loadProfile(){let p=db.profile;for(let k of ['age','height','weight','activity','goal','customGoal'])$(k).value=p[k]??'';profileInfo()}function profileInfo(){let p=db.profile;let f=p.goal==='maintain'?[1.2,1.6]:p.goal==='loss'?[1.4,1.8]:[1.4,2];$('profileInfo').textContent='Orientierungsbereich: '+Math.round(p.weight*f[0])+'–'+Math.round(p.weight*f[1])+' g/Tag. Voreingestelltes Ziel: '+target()+' g. Keine medizinische Mindestbedarfsberechnung.'} $('saveProfile').onclick=()=>{let p={};for(let k of ['age','height','weight','activity','goal','customGoal'])p[k]=$(k).value;if(!(Number(p.age)>0&&Number(p.height)>=80&&Number(p.weight)>=20&&Number(p.weight)<=400)){toast('Bitte gültige Profildaten eingeben.');return}db.profile=p;save();profileInfo();render();toast('Profil gespeichert')};function loadBurn(){let b=db.burn[$('burnDay').value];$('restBurn').value=b?.rest??'';$('activeBurn').value=b?.active??''}$('burnDay').onchange=loadBurn;$('saveBurn').onclick=()=>{let r=$('restBurn').value,a=$('activeBurn').value;if(r===''||a===''||Number(r)<0||Number(a)<0){toast('Bitte beide Werte als positive Zahlen eintragen.');return}db.burn[$('burnDay').value]={rest:Number(r),active:Number(a)};save();render();toast('Verbrauch gespeichert')};function unitLabel(unit){return {g:'g',piece:'Stk.',ml:'ml',l:'l'}[unit]||'g'}
-// Unverbindliche Richtgewichte fuer essbare Anteile; keine Hersteller- oder Messwerte.
+'use strict';
+// ===== Version & Datenformat =====
+const APP_VERSION='1.6';
+const SCHEMA_VERSION=2;                         // 1 = bis App 1.5, 2 = ab App 1.6
+const KEY='proteintracker_v1';                  // Schlüssel bleibt gleich, damit vorhandene Daten gefunden werden
+const BACKUP_KEY='proteintracker_vor_update_1_6'; // unveränderte Kopie der Daten vor der Umstellung
+const NUTRIENTS=['protein','kcal','carb','fat'];
+const UNITS=['g','piece','ml','l'];
+
+const $=id=>document.getElementById(id);
+const round=(v,n=1)=>Number((Number(v)||0).toFixed(n));
+const fmt=(v,n=1)=>round(v,n).toLocaleString('de-DE');
+const isObj=x=>!!x&&typeof x==='object'&&!Array.isArray(x);
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+const dateKey=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+const today=()=>dateKey(new Date());
+
+const empty=()=>({schemaVersion:SCHEMA_VERSION,profile:{age:'',height:'',weight:'',activity:'mixed',goal:'muscle',customGoal:''},entries:[],burn:{},portionWeights:{},lastExport:null});
+
+// Stuft Daten älterer Versionen auf das aktuelle Format hoch. Wird beim Start UND beim Import benutzt.
+function migrate(raw){
+  if(!isObj(raw)||!isObj(raw.profile)||!Array.isArray(raw.entries))throw Error('Ungültiges Datenformat');
+  let from=Number(raw.schemaVersion)||1;
+  if(from>SCHEMA_VERSION)throw Error('Die Daten stammen aus einer neueren App-Version');
+  let data={schemaVersion:from,profile:raw.profile,entries:raw.entries.filter(isObj),
+    burn:isObj(raw.burn)?raw.burn:{},portionWeights:isObj(raw.portionWeights)?raw.portionWeights:{},lastExport:raw.lastExport||null};
+  if(from<2){
+    data.entries=data.entries.map(e=>{
+      let grams=Number(e.amount);
+      let unit=UNITS.includes(e.unit)?e.unit:'g';
+      let quantity=Number(e.quantity)>0?Number(e.quantity):grams;
+      let per100=null,factor=null;
+      // Grundwerte pro 100 g aus den gespeicherten Summen zurückrechnen
+      if(grams>0){per100={};for(let k of NUTRIENTS)per100[k]=round((Number(e[k])||0)*100/grams,3)}
+      if(unit!=='g'&&grams>0&&quantity>0)factor=round(grams/(quantity*(unit==='l'?1000:1)),3);
+      return {...e,id:e.id||uid(),unit,quantity,amount:grams,per100,factor,
+        source:unit==='g'?{type:'grams',text:'Grammangabe'}:{type:'legacy',text:'Altdaten – Herkunft des Umrechnungswerts nicht gespeichert'},
+        estimated:unit!=='g'};
+    });
+  }
+  data.schemaVersion=SCHEMA_VERSION;
+  return data;
+}
+
+// ===== Laden: bei Fehlern niemals Daten überschreiben =====
+let db,startNotice=null;
+(function load(){
+  let rawText=null;
+  try{rawText=localStorage.getItem(KEY)}catch(e){}
+  if(!rawText){db=empty();return}
+  try{
+    let raw=JSON.parse(rawText),before=Number(raw?.schemaVersion)||1;
+    db=migrate(raw);
+    if(before<SCHEMA_VERSION){
+      try{if(!localStorage.getItem(BACKUP_KEY))localStorage.setItem(BACKUP_KEY,rawText)}catch(e){}
+      localStorage.setItem(KEY,JSON.stringify(db));
+      startNotice={type:'ok',text:'Deine Daten wurden auf Version '+APP_VERSION+' umgestellt. Der alte Stand ist zusätzlich gesichert (Verlauf → Datensicherung).'};
+    }
+  }catch(e){
+    // Unlesbare Daten unter eigenem Schlüssel aufheben, statt sie beim nächsten Speichern zu überschreiben
+    let rescueKey='proteintracker_unlesbar_'+today();
+    try{localStorage.setItem(rescueKey,rawText)}catch(_){}
+    db=empty();
+    startNotice={type:'warn',text:'Gespeicherte Daten konnten nicht gelesen werden ('+e.message+'). Sie wurden unverändert aufgehoben. Spiele bitte deine letzte Sicherung über Verlauf → Datensicherung ein.'};
+  }
+})();
+
+function save(){try{localStorage.setItem(KEY,JSON.stringify(db));return true}catch(e){toast('Speichern fehlgeschlagen: Speicherplatz prüfen.');return false}}
+let toastTimer;
+function toast(s,ms=3200){clearTimeout(toastTimer);$('toast').textContent=s;$('toast').classList.add('show');toastTimer=setTimeout(()=>$('toast').classList.remove('show'),ms)}
+
+$('day').value=today();$('burnDay').value=today();
+$('footer').textContent='ProteinTracker '+APP_VERSION+' · keine Anmeldung · Daten lokal gespeichert';
+
+function tab(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('hidden',x.id!==id));document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));if(id==='history'){history();backupInfo()}if(id==='today')render();if(id==='health'){$('burnDay').value=$('day').value;loadBurn()}}
+document.querySelectorAll('[data-tab]').forEach(x=>x.onclick=()=>tab(x.dataset.tab));
+document.querySelectorAll('[data-go]').forEach(x=>x.onclick=()=>tab(x.dataset.go));
+
+// ===== Ziel & Summen =====
+function target(){let p=db.profile,custom=Number(p.customGoal);if(custom>0)return Math.round(custom);let w=Number(p.weight);if(!(w>0))return 0;return Math.round(w*(p.goal==='maintain'?1.4:1.7))}
+function totals(day){return db.entries.filter(e=>e.day===day).reduce((a,e)=>{for(let k of NUTRIENTS)a[k]+=Number(e[k])||0;return a},{protein:0,kcal:0,carb:0,fat:0})}
+function burnTotal(day){let b=db.burn[day];return b&&Number.isFinite(b.rest)&&Number.isFinite(b.active)?b.rest+b.active:null}
+function unitLabel(unit){return {g:'g',piece:'Stk.',ml:'ml',l:'l'}[unit]||'g'}
+
+// Zeile unter dem Namen: Umrechnung + Herkunft der Schätzung
+function entryDetail(e){
+  let box=document.createElement('div');box.className='entry-sub';
+  let parts=[];
+  if(e.unit!=='g'&&e.amount>0)parts.push('= '+fmt(e.amount,0)+' g');
+  if(e.unit==='piece'&&e.factor)parts.push(fmt(e.factor)+' g pro Stück');
+  if((e.unit==='ml'||e.unit==='l')&&e.factor)parts.push(fmt(e.factor,2)+' g/ml');
+  box.append(parts.join(', '));
+  if(e.source?.text&&e.unit!=='g'){
+    if(parts.length)box.append(document.createElement('br'));
+    let s=document.createElement('span');
+    if(e.estimated){s.className='est';s.textContent='Schätzung – '+e.source.text}else s.textContent='Quelle: '+e.source.text;
+    box.append(s);
+  }
+  return box;
+}
+
+function render(){
+  let day=$('day').value,t=totals(day),g=target(),burn=burnTotal(day);
+  $('proteinTotal').textContent=fmt(t.protein)+' g';
+  $('proteinGoal').textContent=g?g+' g':'–';
+  $('calTotal').textContent=fmt(t.kcal,0)+' kcal';
+  $('burnTotal').textContent=burn===null?'Nicht erfasst':fmt(burn,0)+' kcal';
+  $('carbTotal').textContent=fmt(t.carb)+' g';$('fatTotal').textContent=fmt(t.fat)+' g';
+  $('progress').style.width=Math.min(100,g?100*t.protein/g:0)+'%';
+  $('remaining').textContent=g?Math.max(0,round(g-t.protein))+' g bis zum Proteinziel':'Bitte im Profil dein Gewicht oder ein eigenes Proteinziel eintragen.';
+  $('balance').textContent=burn===null?'Kalorienbilanz: Verbrauch noch nicht erfasst':'Kalorienbilanz: '+fmt(t.kcal-burn,0)+' kcal (Aufnahme − Verbrauch)';
+  let items=db.entries.filter(e=>e.day===day);
+  $('entries').replaceChildren();$('emptyEntries').classList.toggle('hidden',items.length>0);
+  for(let e of items){
+    let tr=document.createElement('tr');
+    let nameTd=document.createElement('td'),title=document.createElement('div');title.textContent=e.name;nameTd.append(title,entryDetail(e));tr.append(nameTd);
+    for(let val of [fmt(e.quantity??e.amount)+' '+unitLabel(e.unit||'g'),fmt(e.protein)+' g',fmt(e.kcal,0)]){let td=document.createElement('td');td.className='num';td.textContent=val;tr.append(td)}
+    let td=document.createElement('td'),wrap=document.createElement('div');wrap.className='actions';
+    let edit=document.createElement('button');edit.textContent='✎';edit.className='secondary';edit.setAttribute('aria-label','Eintrag bearbeiten: '+e.name);edit.onclick=()=>openEdit(e.id);
+    let del=document.createElement('button');del.textContent='×';del.className='danger';del.setAttribute('aria-label','Eintrag löschen: '+e.name);
+    del.onclick=()=>{if(confirm('Eintrag „'+e.name+'“ löschen?')){db.entries=db.entries.filter(x=>x.id!==e.id);save();render()}};
+    wrap.append(edit,del);td.append(wrap);tr.append(td);$('entries').append(tr);
+  }
+}
+$('day').onchange=render;
+
+function history(){let tb=$('historyRows');tb.replaceChildren();for(let i=0;i<14;i++){let d=new Date($('day').value+'T12:00:00');d.setDate(d.getDate()-i);let day=dateKey(d),t=totals(day),b=burnTotal(day),tr=document.createElement('tr');for(let val of [day,fmt(t.protein)+' g',fmt(t.kcal,0),b===null?'–':fmt(b,0)]){let td=document.createElement('td');td.textContent=val;tr.append(td)}tb.append(tr)}}
+
+// ===== Profil =====
+function loadProfile(){let p=db.profile;for(let k of ['age','height','weight','activity','goal','customGoal'])$(k).value=p[k]??'';profileInfo()}
+function profileInfo(){let p=db.profile,w=Number(p.weight);if(!(w>0)){$('profileInfo').textContent='Bitte Gewicht eintragen, damit ein Orientierungsbereich berechnet werden kann.';return}let f=p.goal==='maintain'?[1.2,1.6]:p.goal==='loss'?[1.4,1.8]:[1.4,2];$('profileInfo').textContent='Orientierungsbereich: '+Math.round(w*f[0])+'–'+Math.round(w*f[1])+' g/Tag. Voreingestelltes Ziel: '+target()+' g. Keine medizinische Mindestbedarfsberechnung.'}
+$('saveProfile').onclick=()=>{let p={};for(let k of ['age','height','weight','activity','goal','customGoal'])p[k]=$(k).value;if(!(Number(p.age)>0&&Number(p.height)>=80&&Number(p.weight)>=20&&Number(p.weight)<=400)){toast('Bitte gültige Profildaten eingeben.');return}db.profile=p;save();profileInfo();render();toast('Profil gespeichert')};
+
+// ===== Kalorienverbrauch (manuell) =====
+function loadBurn(){let b=db.burn[$('burnDay').value];$('restBurn').value=b?.rest??'';$('activeBurn').value=b?.active??''}
+$('burnDay').onchange=loadBurn;
+$('saveBurn').onclick=()=>{let r=$('restBurn').value,a=$('activeBurn').value;if(r===''||a===''||Number(r)<0||Number(a)<0){toast('Bitte beide Werte als positive Zahlen eintragen.');return}db.burn[$('burnDay').value]={rest:Number(r),active:Number(a)};save();render();toast('Verbrauch gespeichert')};
+
+// ===== Portions-Detektiv =====
+// Unverbindliche Richtgewichte für essbare Anteile; keine Hersteller- oder Messwerte.
 const PORTION_REFERENCES=[
   {re:/\b(?:banane|banana)\b/i,g:120,label:'Banane, mittel, ohne Schale'},
   {re:/\b(?:apfel|apple)\b/i,g:150,label:'Apfel, mittel, essbarer Anteil'},
@@ -28,13 +166,142 @@ const PORTION_REFERENCES=[
   {re:/\b(?:reiswaffel)\b/i,g:8,label:'Reiswaffel, Richtwert'}
 ];
 function portionKey(name){return String(name||'').normalize('NFKC').trim().toLocaleLowerCase('de-DE')}
-function portionSuggestion(food){let key=portionKey(food?.name);let personal=Number(db.portionWeights[key]);if(personal>0&&personal<=10000)return {grams:personal,source:'Dein zuletzt gespeichertes Stückgewicht'};if(Number(food?.pieceGrams)>0)return {grams:Number(food.pieceGrams),source:'Produktangabe'};let ref=PORTION_REFERENCES.find(x=>x.re.test(key));return ref?{grams:ref.g,source:'Unverbindlicher Richtwert: '+ref.label}:null}
-function conversionFields(unit,container,food){container.replaceChildren();container.dataset.foodName=food?.name||'';if(unit==='g')return;let label=document.createElement('label'),input=document.createElement('input'),hint=document.createElement('div');hint.className='small';input.type='number';input.min='0.001';input.step='any';input.className='conversion-value';if(unit==='piece'){label.textContent='Gewicht pro Stück (g)';let suggestion=portionSuggestion(food);input.value=suggestion?.grams??'';input.placeholder='z. B. 55';hint.textContent=suggestion?suggestion.source+' · Schätzung bitte prüfen und ggf. überschreiben. Das bestätigte Gewicht wird für dieses Lebensmittel gemerkt.':'Kein zuverlässiger Vorschlag vorhanden. Bitte essbaren Anteil pro Stück eingeben; das Gewicht wird für dieses Lebensmittel gemerkt.'}else{label.textContent='Gewicht von 1 ml (g)';input.value=food?.density||'';input.placeholder='z. B. 1,03 für Milch';hint.textContent='Dichte abhängig vom Lebensmittel; bei Wasser ca. 1 g/ml. Bitte Verpackung prüfen.'}container.append(label,input,hint)}
-function quantityToGrams(amount,unit,container){if(!Number.isFinite(amount)||amount<=0)return null;if(unit==='g')return amount;let factor=Number(container.querySelector('.conversion-value')?.value);if(!Number.isFinite(factor)||factor<=0)return null;return unit==='piece'?amount*factor:amount*(unit==='l'?1000:1)*factor}
-function addFood(food,amount,unit='g',conversionContainer=null){let grams=quantityToGrams(amount,unit,conversionContainer);if(!food.name||grams===null||grams>100000){toast('Bitte Menge und Umrechnungswert korrekt eingeben.');return}let e={day:$('day').value,name:food.name,amount:grams,quantity:amount,unit};for(let k of ['protein','kcal','carb','fat'])e[k]=round((Number(food[k])||0)*grams/100,2);db.entries.push(e);if(unit==='piece'&&conversionContainer){let pieceWeight=Number(conversionContainer.querySelector('.conversion-value')?.value);if(pieceWeight>0&&pieceWeight<=10000)db.portionWeights[portionKey(food.name)]=pieceWeight}save();render();tab('today');toast('Lebensmittel hinzugefügt')}
+function portionSuggestion(food){
+  let key=portionKey(food?.name),personal=Number(db.portionWeights[key]);
+  if(personal>0&&personal<=10000)return {grams:personal,type:'personal',source:'dein zuletzt gespeichertes Stückgewicht'};
+  if(Number(food?.pieceGrams)>0)return {grams:Number(food.pieceGrams),type:'product',source:'Produktangabe'};
+  let ref=PORTION_REFERENCES.find(x=>x.re.test(key));
+  return ref?{grams:ref.g,type:'reference',source:'unverbindlicher Richtwert ('+ref.label+')'}:null;
+}
+
+// Baut das Umrechnungsfeld (Stückgewicht bzw. Dichte). preset = Werte eines bestehenden Eintrags.
+function conversionFields(unit,container,food,preset=null){
+  container.replaceChildren();
+  for(let k of ['sourceType','sourceText','estimated','edited'])delete container.dataset[k];
+  if(unit==='g')return;
+  let label=document.createElement('label'),input=document.createElement('input'),hint=document.createElement('div');
+  hint.className='small';input.type='number';input.min='0.001';input.step='any';input.className='conversion-value';
+  const setSource=(type,text,estimated)=>{container.dataset.sourceType=type;container.dataset.sourceText=text;container.dataset.estimated=estimated?'1':'0'};
+  if(unit==='piece'){
+    label.textContent='Gewicht pro Stück (g)';input.placeholder='z. B. 55';
+    let s=preset?{grams:preset.factor,type:preset.source?.type,source:preset.source?.text}:portionSuggestion(food);
+    if(s&&s.grams){input.value=s.grams;setSource(s.type||'legacy',s.source||'',preset?preset.estimated:true);
+      hint.textContent=(preset?'Bisher: ':'Vorschlag: ')+s.source+'. Schätzung bitte prüfen und ggf. überschreiben – das bestätigte Gewicht wird für dieses Lebensmittel gemerkt.'}
+    else hint.textContent='Kein zuverlässiger Vorschlag vorhanden. Bitte essbaren Anteil pro Stück eingeben; das Gewicht wird für dieses Lebensmittel gemerkt.';
+  }else{
+    label.textContent='Gewicht von 1 ml (g)';input.placeholder='z. B. 1,03 für Milch';
+    let v=preset?.factor||food?.density||'';input.value=v;
+    if(preset&&v)setSource(preset.source?.type||'legacy',preset.source?.text||'',preset.estimated);
+    hint.textContent='Dichte abhängig vom Lebensmittel; bei Wasser ca. 1 g/ml. Bitte Verpackung prüfen.';
+  }
+  input.addEventListener('input',()=>{container.dataset.edited='1'});
+  container.append(label,input,hint);
+}
+
+// Liest Umrechnungswert + Herkunft aus. null = ungültig.
+function readConversion(unit,container){
+  if(unit==='g')return {factor:null,source:{type:'grams',text:'Grammangabe'},estimated:false};
+  let f=Number(container?.querySelector('.conversion-value')?.value);
+  if(!Number.isFinite(f)||f<=0)return null;
+  let d=container.dataset;
+  if(d.edited!=='1'&&d.sourceText)return {factor:f,source:{type:d.sourceType,text:d.sourceText},estimated:d.estimated==='1'};
+  return {factor:f,source:{type:'user',text:unit==='piece'?'von dir eingegebenes Stückgewicht':'von dir angegebene Dichte'},estimated:false};
+}
+
+function applyNutrients(e){for(let k of NUTRIENTS)e[k]=round(e.per100[k]*e.amount/100,2)}
+function buildEntry(food,amount,unit,container,day){
+  if(!food.name||!(Number.isFinite(amount)&&amount>0))return null;
+  let conv=readConversion(unit,container);if(!conv)return null;
+  let grams=unit==='g'?amount:unit==='piece'?amount*conv.factor:amount*(unit==='l'?1000:1)*conv.factor;
+  if(!(grams>0&&grams<=100000))return null;
+  let per100={};for(let k of NUTRIENTS)per100[k]=Number(food[k])||0;
+  let e={id:uid(),day,name:food.name,amount:round(grams,2),quantity:amount,unit,factor:conv.factor,per100,source:conv.source,estimated:conv.estimated,createdAt:new Date().toISOString()};
+  applyNutrients(e);return e;
+}
+function rememberPiece(e){if(e.unit==='piece'&&e.source?.type!=='legacy'&&e.factor>0&&e.factor<=10000)db.portionWeights[portionKey(e.name)]=e.factor}
+
+function addFood(food,amount,unit='g',container=null){
+  let e=buildEntry(food,amount,unit,container,$('day').value);
+  if(!e){toast('Bitte Menge und Umrechnungswert korrekt eingeben.');return}
+  db.entries.push(e);rememberPiece(e);save();render();tab('today');toast('Lebensmittel hinzugefügt')
+}
+
+// ===== Eintrag bearbeiten =====
+let editing=null;
+function openEdit(id){
+  let e=db.entries.find(x=>x.id===id);if(!e)return;
+  if(!e.per100){toast('Dieser Alteintrag hat keine Grundwerte und kann nur gelöscht werden.');return}
+  editing=e;
+  $('editName').textContent=e.name;
+  $('editSource').textContent='Nährwerte je 100 g: '+fmt(e.per100.protein)+' g Protein · '+fmt(e.per100.kcal,0)+' kcal';
+  $('editDay').value=e.day;$('editQty').value=e.quantity;$('editUnit').value=e.unit;
+  fillEditConversion();updateEditPreview();
+  $('editOverlay').classList.remove('hidden');$('editQty').focus();
+}
+function fillEditConversion(){
+  let unit=$('editUnit').value,e=editing;
+  conversionFields(unit,$('editConversion'),{name:e.name},unit===e.unit&&e.factor?{factor:e.factor,source:e.source,estimated:e.estimated}:null);
+}
+function editDraft(){let e=editing;return buildEntry({name:e.name,...e.per100},Number($('editQty').value),$('editUnit').value,$('editConversion'),$('editDay').value)}
+function updateEditPreview(){
+  let d=editDraft();
+  $('editPreview').className=d?'ok':'notice';
+  $('editPreview').textContent=d?'Neu: '+fmt(d.amount,0)+' g · '+fmt(d.protein)+' g Protein · '+fmt(d.kcal,0)+' kcal'+(d.estimated?' (Schätzung)':''):'Bitte Menge und Umrechnungswert prüfen.';
+}
+function closeEdit(){editing=null;$('editOverlay').classList.add('hidden')}
+$('editUnit').onchange=()=>{fillEditConversion();updateEditPreview()};
+for(let id of ['editQty','editDay','editConversion'])$(id).addEventListener('input',updateEditPreview);
+$('editCancel').onclick=closeEdit;
+$('editOverlay').addEventListener('click',ev=>{if(ev.target.id==='editOverlay')closeEdit()});
+document.addEventListener('keydown',ev=>{if(ev.key==='Escape'&&editing)closeEdit()});
+$('editSave').onclick=()=>{
+  let d=editDraft();if(!d){toast('Bitte Menge und Umrechnungswert korrekt eingeben.');return}
+  for(let k of ['day','quantity','unit','amount','factor','source','estimated',...NUTRIENTS])editing[k]=d[k];
+  editing.editedAt=new Date().toISOString();
+  rememberPiece(editing);
+  let newDay=editing.day;
+  save();closeEdit();
+  if(newDay!==$('day').value){$('day').value=newDay}
+  render();toast('Eintrag aktualisiert');
+};
+
+// ===== Manuelle Erfassung =====
 $('manualUnit').onchange=()=>conversionFields($('manualUnit').value,$('manualConversion'),{name:$('manualName').value.trim()});
-$('manualName').addEventListener('change',()=>{if($('manualUnit').value==='piece')conversionFields('piece',$('manualConversion'),{name:$('manualName').value.trim()})});$('manualAdd').onclick=()=>{let food={name:$('manualName').value.trim()};for(let [k,id] of [['protein','manualProtein'],['kcal','manualKcal'],['carb','manualCarb'],['fat','manualFat']]){let v=$(id).value;if(v===''||!Number.isFinite(Number(v))||Number(v)<0){toast('Bitte alle Nährwerte pro 100 g ausfüllen.');return}food[k]=Number(v)}addFood(food,Number($('manualAmount').value),$('manualUnit').value,$('manualConversion'))};
-const searchEndpoint='https://world.openfoodfacts.org/cgi/search.pl';let busy=false;async function search(){let q=$('query').value.trim();if(q.length<2){toast('Mindestens zwei Zeichen eingeben');return}if(busy)return;busy=true;$('searchBtn').disabled=true;$('results').textContent='Suche läuft …';try{let url=searchEndpoint+'?search_terms='+encodeURIComponent(q)+'&search_simple=1&action=process&json=1&page_size=20&fields=code,product_name,brands,nutriments';let res=await fetch(url,{headers:{Accept:'application/json'}});if(!res.ok)throw Error('HTTP '+res.status);let data=await res.json();let products=(data.products||[]).filter(p=>p.product_name&&p.nutriments&&Number.isFinite(Number(p.nutriments.proteins_100g))&&p.nutriments.proteins_100g!==undefined);$('results').replaceChildren();if(!products.length){$('results').textContent='Keine passenden Produkte mit Proteinwert gefunden. Du kannst das Lebensmittel manuell erfassen.';return}for(let p of products){let n=p.nutriments,food={name:p.product_name+(p.brands?' · '+p.brands:''),protein:Number(n.proteins_100g)||0,kcal:Number(n['energy-kcal_100g'])||0,carb:Number(n.carbohydrates_100g)||0,fat:Number(n.fat_100g)||0};let wrap=document.createElement('div');wrap.className='food';let title=document.createElement('div');title.className='food-title';title.textContent=food.name;let info=document.createElement('div');info.className='muted';info.textContent='Je 100 g: '+fmt(food.protein)+' g Protein · '+(n['energy-kcal_100g']===undefined?'kcal unbekannt':fmt(food.kcal,0)+' kcal')+' · '+fmt(food.carb)+' g KH · '+fmt(food.fat)+' g Fett';let line=document.createElement('div');line.className='row';line.style.marginTop='8px';let input=document.createElement('input');input.type='number';input.min='0.01';input.step='any';input.value='100';input.setAttribute('aria-label','Verzehrte Menge');let select=document.createElement('select');select.setAttribute('aria-label','Mengeneinheit');for(let [v,t] of [['g','g'],['piece','Stk.'],['ml','ml'],['l','l']]){let o=document.createElement('option');o.value=v;o.textContent=t;select.append(o)}select.style.maxWidth='100px';let btn=document.createElement('button');btn.textContent='Hinzufügen';let conv=document.createElement('div');select.onchange=()=>conversionFields(select.value,conv,food);btn.onclick=()=>addFood(food,Number(input.value),select.value,conv);line.append(input,select,btn);wrap.append(title,info,line,conv);$('results').append(wrap)}}catch(err){$('results').textContent='Suche derzeit nicht verfügbar (Internetverbindung, Datenbank oder Browserzugriff). Bitte später erneut versuchen oder manuell erfassen.'}finally{busy=false;$('searchBtn').disabled=false}}$('searchBtn').onclick=search;$('query').onkeydown=e=>{if(e.key==='Enter')search()};$('export').onclick=()=>{let blob=new Blob([JSON.stringify({version:1,...db},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='proteintracker-backup-'+today()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};$('import').onchange=async e=>{let file=e.target.files[0];if(!file)return;try{let data=JSON.parse(await file.text());if(!data.profile||!Array.isArray(data.entries)||!data.burn)throw Error('Format');if(!confirm('Vorhandene Daten durch die Sicherung ersetzen?'))return;db={profile:data.profile,entries:data.entries,burn:data.burn,portionWeights:(data.portionWeights&&typeof data.portionWeights==='object'&&!Array.isArray(data.portionWeights))?data.portionWeights:{}};save();loadProfile();render();toast('Daten wiederhergestellt')}catch(err){toast('Ungültige Sicherungsdatei')}};
+$('manualName').addEventListener('change',()=>{if($('manualUnit').value==='piece')conversionFields('piece',$('manualConversion'),{name:$('manualName').value.trim()})});
+$('manualAdd').onclick=()=>{let food={name:$('manualName').value.trim()};for(let [k,id] of [['protein','manualProtein'],['kcal','manualKcal'],['carb','manualCarb'],['fat','manualFat']]){let v=$(id).value;if(v===''||!Number.isFinite(Number(v))||Number(v)<0){toast('Bitte alle Nährwerte pro 100 g ausfüllen.');return}food[k]=Number(v)}if(!food.name){toast('Bitte einen Namen eingeben.');return}addFood(food,Number($('manualAmount').value),$('manualUnit').value,$('manualConversion'))};
+
+// ===== Suche (Open Food Facts) =====
+const searchEndpoint='https://world.openfoodfacts.org/cgi/search.pl';let busy=false;
+async function search(){let q=$('query').value.trim();if(q.length<2){toast('Mindestens zwei Zeichen eingeben');return}if(busy)return;busy=true;$('searchBtn').disabled=true;$('results').textContent='Suche läuft …';try{let params=new URLSearchParams({search_terms:q,search_simple:'1',action:'process',json:'1',page_size:'60',fields:'code,product_name,product_name_de,brands,countries_tags,nutriments',tagtype_0:'countries',tag_contains_0:'contains',tag_0:'germany'});let res=await fetch(searchEndpoint+'?'+params.toString(),{headers:{Accept:'application/json'}});if(!res.ok)throw Error('HTTP '+res.status);let data=await res.json();let products=(data.products||[]).filter(p=>(p.product_name_de||p.product_name)&&p.nutriments&&p.nutriments.proteins_100g!==undefined&&Number.isFinite(Number(p.nutriments.proteins_100g)));products.sort((a,b)=>Number(Boolean(b.product_name_de))-Number(Boolean(a.product_name_de)));products=products.slice(0,25);$('results').replaceChildren();if(!products.length){$('results').textContent='Keine passenden Produkte für den deutschen Markt mit Proteinwert gefunden. Versuche einen anderen deutschen Suchbegriff oder erfasse das Lebensmittel manuell.';return}let note=document.createElement('div');note.className='muted';note.textContent='Suche: Produkte für den deutschen Markt · deutsche Produktnamen bevorzugt (nicht jeder Datenbankeintrag ist übersetzt). Daten: Open Food Facts (ODbL).';$('results').append(note);for(let p of products){let n=p.nutriments,food={name:(p.product_name_de||p.product_name)+(p.brands?' · '+p.brands:''),protein:Number(n.proteins_100g)||0,kcal:Number(n['energy-kcal_100g'])||0,carb:Number(n.carbohydrates_100g)||0,fat:Number(n.fat_100g)||0};let wrap=document.createElement('div');wrap.className='food';let title=document.createElement('div');title.className='food-title';title.textContent=food.name;let info=document.createElement('div');info.className='muted';info.textContent='Je 100 g: '+fmt(food.protein)+' g Protein · '+(n['energy-kcal_100g']===undefined?'kcal unbekannt':fmt(food.kcal,0)+' kcal')+' · '+fmt(food.carb)+' g KH · '+fmt(food.fat)+' g Fett';let line=document.createElement('div');line.className='row';line.style.marginTop='8px';let input=document.createElement('input');input.type='number';input.min='0.01';input.step='any';input.value='100';input.setAttribute('aria-label','Verzehrte Menge');let select=document.createElement('select');select.setAttribute('aria-label','Mengeneinheit');for(let [v,t] of [['g','g'],['piece','Stk.'],['ml','ml'],['l','l']]){let o=document.createElement('option');o.value=v;o.textContent=t;select.append(o)}select.style.maxWidth='100px';let btn=document.createElement('button');btn.textContent='Hinzufügen';let conv=document.createElement('div');select.onchange=()=>conversionFields(select.value,conv,food);btn.onclick=()=>addFood(food,Number(input.value),select.value,conv);line.append(input,select,btn);wrap.append(title,info,line,conv);$('results').append(wrap)}}catch(err){$('results').textContent='Suche derzeit nicht verfügbar (Internetverbindung, Datenbank oder Browserzugriff). Bitte später erneut versuchen oder manuell erfassen.'}finally{busy=false;$('searchBtn').disabled=false}}
+$('searchBtn').onclick=search;$('query').onkeydown=e=>{if(e.key==='Enter')search()};
+
+// ===== Datensicherung =====
+function downloadJSON(obj,filename){let blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function backupInfo(){
+  $('lastExport').textContent=db.lastExport?'Letzte Sicherung: '+new Date(db.lastExport).toLocaleString('de-DE'):'Noch keine Sicherung mit dieser App-Version erstellt.';
+  let old=null;try{old=localStorage.getItem(BACKUP_KEY)}catch(e){}
+  $('exportOld').classList.toggle('hidden',!old);
+}
+$('export').onclick=()=>{db.lastExport=new Date().toISOString();save();downloadJSON({...db,appVersion:APP_VERSION,exportedAt:db.lastExport},'proteintracker-backup-'+today()+'.json');backupInfo()};
+$('exportOld').onclick=()=>{try{let old=JSON.parse(localStorage.getItem(BACKUP_KEY));downloadJSON(old,'proteintracker-stand-vor-1-6.json')}catch(e){toast('Alter Stand nicht lesbar.')}};
+$('import').onchange=async ev=>{
+  let file=ev.target.files[0];if(!file)return;
+  try{
+    let data=migrate(JSON.parse(await file.text()));
+    if(!confirm('Vorhandene Daten durch die Sicherung ersetzen? ('+data.entries.length+' Einträge)\nTipp: Vorher ggf. die aktuellen Daten sichern.'))return;
+    db=data;save();loadProfile();render();backupInfo();toast('Daten wiederhergestellt');
+  }catch(err){toast('Ungültige Sicherungsdatei: '+err.message)}
+  finally{ev.target.value=''}
+};
+async function checkPersistence(){
+  let el=$('persistStatus');
+  const setMsg=(ok,text)=>{el.className=ok?'ok':'notice';el.textContent=text};
+  if(!navigator.storage?.persist){setMsg(false,'Dein Browser bietet keinen dauerhaften Speicherschutz an. Bitte regelmäßig sichern.');return}
+  try{let ok=await navigator.storage.persisted();if(!ok)ok=await navigator.storage.persist();
+    setMsg(ok,ok?'✓ Dauerhafter Speicher aktiv: Der Browser löscht die Daten nicht automatisch.':'Dauerhafter Speicher nicht gewährt. Tipp: App zum Home-Bildschirm hinzufügen und regelmäßig sichern.')}
+  catch(e){setMsg(false,'Speicherschutz konnte nicht geprüft werden. Bitte regelmäßig sichern.')}
+}
+
 // Fotoerfassung: lokale OCR, BarcodeDetector (falls verfügbar), manuelle Bestätigung
 const photoFile=$('photoFile'),photoPreview=$('photoPreview'),photoStatus=$('photoStatus'),photoOutput=$('photoOutput');
 let photoUrl=null,photoGeneration=0;
@@ -52,10 +319,13 @@ function clearPhotoPreviewOnly(){photoGeneration++;if(photoUrl)URL.revokeObjectU
 function showPhotoFields(message,raw=''){photoOutput.replaceChildren();let p=document.createElement('p');p.textContent=message;photoOutput.append(p);if(raw){let details=document.createElement('details'),summary=document.createElement('summary'),pre=document.createElement('pre');summary.textContent='Erkannten Text kontrollieren';pre.style.whiteSpace='pre-wrap';pre.style.overflowWrap='anywhere';pre.textContent=raw;details.append(summary,pre);photoOutput.append(details)}}
 function setManualField(id,value){if(value!==null&&value!==undefined&&Number.isFinite(Number(value)))$(id).value=Number(value)}
 function parseLabel(text){let t=text.replace(/,/g,'.').replace(/\s+/g,' ');const get=(pattern)=>{let m=t.match(pattern);return m?Number(m[1]):null};return {protein:get(/(?:eiweiß|eiweiss|protein|proteine)\s*[:\-]?\s*(\d+(?:\.\d+)?)/i),carb:get(/(?:kohlenhydrate|carbohydrates)\s*[:\-]?\s*(\d+(?:\.\d+)?)/i),fat:get(/(?:fett|fat)\s*[:\-]?\s*(\d+(?:\.\d+)?)/i),kcal:get(/(?:energie|energy|brennwert)[^\d]{0,15}(?:\d+(?:\.\d+)?\s*kJ\s*[/|]?\s*)?(\d+(?:\.\d+)?)\s*kcal/i)}}
-async function loadOCR(){if(window.Tesseract)return window.Tesseract;return new Promise((resolve,reject)=>{let sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';sc.onload=()=>window.Tesseract?resolve(window.Tesseract):reject(Error('Bibliothek nicht geladen'));sc.onerror=()=>reject(Error('OCR-Bibliothek nicht erreichbar'));document.head.append(sc)})}
+async function loadOCR(){if(window.Tesseract)return window.Tesseract;return new Promise((resolve,reject)=>{let sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';sc.onload=()=>window.Tesseract?resolve(window.Tesseract):reject(Error('Bibliothek nicht geladen'));sc.onerror=()=>reject(Error('OCR-Bibliothek nicht erreichbar'));document.head.append(sc)})}
 $('photoAnalyze').onclick=async()=>{let f=photoFile.files[0],mode=$('photoMode').value,generation=photoGeneration;if(!f){photoStatus.textContent='Bitte zuerst ein Foto auswählen.';return}photoOutput.replaceChildren();$('photoAnalyze').disabled=true;try{if(mode==='dish'){showPhotoFields('Ein Gericht lässt sich aus einem einzelnen Foto ohne zuverlässige Portionsmessung nicht exakt berechnen. Bitte suche die Zutaten unten und ergänze ihre geschätzten Mengen oder erfasse das Gericht manuell.');return}if(mode==='barcode'){if(!('BarcodeDetector'in window)){showPhotoFields('Dein Browser unterstützt die Barcode-Erkennung aus Fotos nicht. Bitte gib die EAN über die normale Lebensmittelsuche ein.');return}photoStatus.textContent='Barcode wird lokal gesucht …';let detector=new BarcodeDetector({formats:['ean_13','ean_8','upc_a','upc_e']});let codes=await detector.detect(photoPreview);if(!codes.length){showPhotoFields('Kein Barcode erkannt. Bitte näher, schärfer und ohne Spiegelung fotografieren.');return}let code=codes[0].rawValue;photoStatus.textContent='EAN '+code+' – Produktdaten werden geladen …';let response=await fetch('https://world.openfoodfacts.org/api/v2/product/'+encodeURIComponent(code)+'.json');if(!response.ok)throw Error('Produktabfrage HTTP '+response.status);let data=await response.json();if(generation!==photoGeneration)return;if(data.status!==1||!data.product){showPhotoFields('EAN '+code+' ist in Open Food Facts nicht vorhanden. Bitte manuell erfassen.');return}let product=data.product,n=product.nutriments||{};$('manualName').value=product.product_name||'Produkt '+code;setManualField('manualProtein',n.proteins_100g);setManualField('manualKcal',n['energy-kcal_100g']);setManualField('manualCarb',n.carbohydrates_100g);setManualField('manualFat',n.fat_100g);showPhotoFields('Gefunden: '+$('manualName').value+'. Werte wurden in das Formular „Lebensmittel manuell hinzufügen“ übernommen. Bitte dort kontrollieren und speichern.');return}
 photoStatus.textContent='Nährwerttabelle wird lokal gelesen (beim ersten Mal kann dies dauern) …';let T=await loadOCR();let result=await T.recognize(f,'deu+eng');if(generation!==photoGeneration)return;let raw=result.data.text||'',values=parseLabel(raw);for(let [key,id] of [['protein','manualProtein'],['kcal','manualKcal'],['carb','manualCarb'],['fat','manualFat']])setManualField(id,values[key]);showPhotoFields('Texterkennung abgeschlossen. Erkannte Werte wurden unten übernommen, soweit zuordenbar. WICHTIG: Prüfe die Werte und ob sie pro 100 g oder pro Portion gelten. Bei Portionsangaben musst du sie vor dem Speichern auf 100 g umrechnen.',raw);
 }catch(err){if(generation!==photoGeneration)return;showPhotoFields('Auswertung nicht möglich: '+err.message+'. Du kannst die Nährwerte weiterhin manuell eintragen.')}finally{if(generation===photoGeneration)photoStatus.textContent='';$('photoAnalyze').disabled=false}};
 
-loadProfile();render();loadBurn();if('serviceWorker'in navigator&&location.protocol==='https:')navigator.serviceWorker.register('./sw.js').catch(()=>{});
+// ===== Start =====
+loadProfile();render();loadBurn();backupInfo();checkPersistence();
+if(startNotice){let w=$('loadWarning');w.textContent=startNotice.text+' (Tippen zum Ausblenden)';w.className=startNotice.type==='ok'?'ok':'notice';w.onclick=()=>w.classList.add('hidden')}
+if('serviceWorker'in navigator&&location.protocol==='https:')navigator.serviceWorker.register('./sw.js').catch(()=>{});
 </script></body></html>
